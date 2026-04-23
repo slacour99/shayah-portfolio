@@ -1,0 +1,116 @@
+---
+title: "Résumé"
+format:
+  html:
+    toc: false
+---
+
+```{=html}
+<div class="page-header">
+  <p class="page-eyebrow">Background</p>
+  <h2>Résumé</h2>
+  <p class="page-desc">Marketing student with a focus on digital strategy and data-driven decision making.</p>
+</div>
+
+<div class="resume-layout">
+
+  <!-- ── LEFT SIDEBAR ── -->
+  <div class="resume-sidebar">
+
+    <p class="resume-name">Shayah LaCour</p>
+    <p class="resume-title-tag">Digital Marketing Student <span class="dot"></span> Disneyland's California Adventure Attractions Cast Member</p>
+
+    <a class="download-btn" href="#">⬇ Download PDF</a>
+
+    <!-- CONTACT -->
+    <div class="resume-section" style="margin-top:2rem;">
+      <h4>Contact</h4>
+      <p>slacour@cpp.edu</p>
+      <p>www.linkedin.com/in/shayah-lacour</p>
+      <p>Ladera Ranch, California</p>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="resume-section">
+      <h4>Skills</h4>
+      <ul>
+        <li>Google Analytics 4</li>
+        <li>SEO / SEM</li>
+        <li>Email Marketing</li>
+        <li>Social Media Strategy</li>
+        <li>R basics</li>
+        <li>Data Visualization</li>
+        <li>Quarto / R Markdown</li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="resume-section">
+      <h4>Education</h4>
+      <p style="font-weight:500;color:#1C2B3A;">California State Polytechnic University, Pomona</p>
+      <p>M.S. Digital Marketing</p>
+      <p>Expected August 2026</p>
+      <br>
+      <p style="font-weight:500;color:#1C2B3A;">University of California, Los Angeles</p>
+      <p>B.A. Sociology</p>
+      <p>Graduated 2021</p>
+    </div>
+
+  </div>
+
+  <!-- ── RIGHT MAIN COLUMN ── -->
+  <div class="resume-main">
+
+    <!-- EXPERIENCE -->
+    <div class="resume-section">
+      <h4>Experience</h4>
+
+      <div class="resume-entry">
+        <h5>Receptionist and Social Media Coordinator</h5>
+        <p class="meta">Aliso Beach Animal Clinic · 2022–2024</p>
+        <p>Assisted with social media content on both TikTok and Instagram, creation and scheduling, and contributed to email campaigns.</p>
+      </div>
+
+      <!-- ── ADD MORE EXPERIENCE HERE ──
+      <div class="resume-entry">
+        <h5>Job Title</h5>
+        <p class="meta">Company · Month Year – Month Year</p>
+        <p>Description of your role.</p>
+      </div>
+      ── END TEMPLATE ── -->
+
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="resume-section">
+      <h4>Projects</h4>
+
+      <div class="resume-entry">
+        <h5>Portfolio Website</h5>
+        <p class="meta">Academic Project · 2026</p>
+        <p>Built a multi-page portfolio website showcasing digital marketing and analytics projects, including GA4 traffic analysis and a Reveal.js presentation deck.</p>
+      </div>
+
+      <div class="resume-entry">
+        <h5>Trauma Resource Institute</h5>
+        <p class="meta">Capstone Project at Cal Poly Pomona</p>
+        <p>Conducted an off-page SEO audit and GA4 traffic analysis to support digital strategy recommendations for TRI's website.</p>
+      </div>
+
+    </div>
+
+    <!-- COURSEWORK -->
+    <div class="resume-section">
+      <h4>Coursework</h4>
+      <ul>
+        <li>Digital Marketing Strategy</li>
+        <li>Marketing Analytics</li>
+        <li>Consumer Behavior</li>
+        <li>Data Analysis for Business</li>
+        <li>Brand Management</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+```

@@ -1,0 +1,333 @@
+---
+title: "Marketing Analytics"
+format:
+  html:
+    toc: false
+---
+
+```{r setup}
+#| include: false
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(gridExtra)
+library(base64enc)
+
+clr_navy  <- "#1B4F72"
+clr_terra <- "#E8825A"
+clr_green <- "#2E8B6E"
+
+channels <- c("Affiliate", "Mobile", "Paid Search", "Social Media")
+colors4  <- c("#1B4F72", "#E8825A", "#2E8B6E", "#8172B3")
+```
+
+```{=html}
+<div class="page-header">
+  <p class="page-eyebrow">Data &amp; Insights</p>
+  <h2>Marketing Analytics Projects</h2>
+  <p class="page-desc">Quantitative analyses of marketing performance, website traffic, and consumer behavior using GA4, regression models, and data visualization.</p>
+</div>
+
+<!-- ── FEATURED GA4 CARD ── -->
+<div class="featured-card" style="margin-bottom:1.4rem;">
+  <div class="card-icon" style="background:rgba(255,255,255,0.08);">📊</div>
+  <p class="card-type">GA4 Analytics — Featured</p>
+  <h3>Capstone Project with Trauma Resource Institute</h3>
+  <p>Multi-channel attribution analysis using Markov Chain and Shapley models to measure which digital channels drive conversions for TRI. Users were viewing TRI's site however there were not many who stayed to sign up for trainings or donations.</p>
+  <div style="margin-top:1.5rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
+    <span class="card-tag">GA4</span>
+    <span class="card-tag">BigQuery Analytics</span>
+    <span class="card-tag">Traffic Analysis</span>
+  </div>
+</div>
+
+<!-- ── ANALYTICS CARDS GRID ── -->
+<div class="projects-grid">
+
+  <!-- ── CARD 1: TRI Attribution Dashboard ── -->
+  <div class="project-card" onclick="openDashboard()">
+    <div class="card-icon">📈</div>
+    <p class="card-type">Marketing Attribution</p>
+    <h3>TRI Attribution Dashboard</h3>
+    <p>Interactive multi-channel attribution analysis using Markov Chain, Shapley values, and path analysis to identify which channels drive TRI conversions.</p>
+    <div class="card-footer">
+      <span class="card-tag">Markov Chain</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </div>
+
+  <!-- ── CARD 2: TRI Logistic Regression Codebook ── -->
+  <div class="project-card" onclick="openCodebook()">
+    <div class="card-icon">📋</div>
+    <p class="card-type">Logistic Regression</p>
+    <h3>TRI Logistic Regression Codebook</h3>
+    <p>Full analytical codebook documenting data preparation, descriptive comparisons, variable definitions, and logistic regression models examining user conversion behavior.</p>
+    <div class="card-footer">
+      <span class="card-tag">R · Logistic Regression</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </div>
+
+  <!-- ── CARD 3: Reveal.js Presentation ── -->
+  <div class="project-card" onclick="openProject('revealjs')">
+    <div class="card-icon">🎬</div>
+    <p class="card-type">Reveal.js Presentation</p>
+    <h3>Placeholder</h3>
+    <p>Description to go here.</p>
+    <div class="card-footer">
+      <span class="card-tag">Presentation</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     MODAL 1 — TRI ATTRIBUTION DASHBOARD
+════════════════════════════════════════════ -->
+<div class="project-detail" id="dashboardModal">
+  <div class="detail-panel" style="max-width:900px;width:95%;max-height:90vh;overflow-y:auto;padding:2.5rem;">
+    <button class="close-btn" onclick="closeDashboard()" style="margin-bottom:1rem;">✕</button>
+
+    <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8722A;font-weight:400;margin-bottom:0.4rem;">📈 Marketing Attribution</p>
+    <h3 style="margin-bottom:0.3rem;">TRI Attribution Dashboard</h3>
+    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+      <span class="card-tag">GA4</span>
+      <span class="card-tag">Markov Chain</span>
+      <span class="card-tag">Shapley Values</span>
+      <span class="card-tag">Path Analysis</span>
+    </div>
+
+    <!-- VALUE BOXES -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:1.5rem;">
+      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
+        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Total Users</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">105</p>
+      </div>
+      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
+        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Conversions</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">83</p>
+      </div>
+      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
+        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Conversion Rate</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">79.0%</p>
+      </div>
+      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
+        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Unique Channels</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">4</p>
+      </div>
+    </div>
+
+    <div class="detail-section"><label>Data &amp; Source</label><p>Google Analytics 4 data from TRI website. Separating the audience between converters and non-converters using BigQuery export.</p></div>
+    <div class="detail-section"><label>Managerial Problem</label><p>Users were viewing TRI's site however there were not many who stayed to sign up for trainings or donations.</p></div>
+    <div class="detail-section"><label>Target Audience</label><p>The Trauma Resource Institute specializes with healthcare professionals, but also anyone interested in learning more about trauma and coping.</p></div>
+    <div class="detail-section"><label>Research Questions / Objectives</label><p>How can TRI platform their website to encourage more conversions? Which channels contribute most to conversion?</p></div>
+    <div class="detail-section"><label>Methods</label><p>Markov Chain attribution, Shapley value analysis, first-touch vs last-touch comparison, path length analysis using R.</p></div>
+
+    <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#E8722A;font-weight:400;margin:1.5rem 0 0.8rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(74,144,196,0.15);">Visualizations</p>
+    <div id="dashboard-charts"></div>
+
+    <div style="background:#EEF5FB;border-radius:12px;padding:1.5rem;margin-top:1.5rem;">
+      <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#E8722A;font-weight:400;margin-bottom:1rem;">Key Findings</p>
+      <ol style="color:#7A90A4;font-weight:300;font-size:0.88rem;line-height:1.8;padding-left:1.2rem;margin:0;">
+        <li><strong style="color:#1C2B3A;">All four channels matter.</strong> Markov and Shapley models show roughly equal contribution (~20–22 credits each).</li>
+        <li><strong style="color:#1C2B3A;">Mobile and Paid Search are structurally essential.</strong> Removing either causes the largest drop in conversion probability (~68%).</li>
+        <li><strong style="color:#1C2B3A;">Social Media is undervalued by heuristics.</strong> The Markov model lifts it to near-parity (19.5 credits), suggesting an important mid-funnel role.</li>
+        <li><strong style="color:#1C2B3A;">Longer journeys convert better.</strong> Users with more touchpoints have higher conversion rates.</li>
+      </ol>
+      <p style="margin-top:1rem;font-size:0.85rem;color:#7A90A4;font-weight:300;"><strong style="color:#E8722A;">Recommendation:</strong> Use the Markov model as the primary attribution framework and Shapley values as a fairness check.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     MODAL 2 — TRI LOGISTIC REGRESSION CODEBOOK
+     Uses an iframe to display the rendered TRICodebook.html
+════════════════════════════════════════════ -->
+<div class="project-detail" id="codebookModal">
+  <div class="detail-panel" style="max-width:960px;width:95%;max-height:92vh;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+
+    <!-- Modal header bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.8rem;border-bottom:1px solid rgba(74,144,196,0.15);flex-shrink:0;">
+      <div>
+        <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8722A;font-weight:400;margin:0 0 0.2rem;">📋 Logistic Regression</p>
+        <h3 style="margin:0;font-size:1.3rem;">TRI Logistic Regression Codebook</h3>
+      </div>
+      <button class="close-btn" onclick="closeCodebook()">✕</button>
+    </div>
+
+    <!-- Iframe loads the rendered codebook HTML -->
+    <iframe
+      id="codebookFrame"
+      src="TRICodebook.html"
+      style="width:100%;flex:1;border:none;border-radius:0 0 22px 22px;"
+      title="TRI Logistic Regression Codebook">
+    </iframe>
+
+  </div>
+</div>
+
+
+<!-- ── STANDARD PROJECT MODAL (for other cards) ── -->
+<div class="project-detail" id="projectDetail">
+  <div class="detail-panel">
+    <button class="close-btn" onclick="closeProject()">✕</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<script>
+// ── Dashboard modal ──
+function openDashboard() { document.getElementById('dashboardModal').classList.add('open'); }
+function closeDashboard() { document.getElementById('dashboardModal').classList.remove('open'); }
+document.getElementById('dashboardModal').addEventListener('click', function(e) {
+  if (e.target === this) closeDashboard();
+});
+
+// ── Codebook modal ──
+function openCodebook() { document.getElementById('codebookModal').classList.add('open'); }
+function closeCodebook() { document.getElementById('codebookModal').classList.remove('open'); }
+document.getElementById('codebookModal').addEventListener('click', function(e) {
+  if (e.target === this) closeCodebook();
+});
+
+// ── Other project cards ──
+const projects = {
+  revealjs: {
+    icon: '🎬', type: 'Reveal.js Presentation', title: 'Title Placeholder',
+    tags: ['Reveal.js', 'Presentation', 'Data Storytelling'],
+    data: 'Placeholder', problem: '.', audience: '.', questions: '.', impact: '.', methods: '.',
+  },
+};
+
+function openProject(id) {
+  const p = projects[id];
+  if (!p) return;
+  document.getElementById('detailContent').innerHTML = `
+    <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8722A;font-weight:400;margin-bottom:0.5rem;">${p.icon} ${p.type}</p>
+    <h3>${p.title}</h3>
+    <div class="detail-meta">${p.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>
+    <div class="detail-section"><label>Data &amp; Source</label><p>${p.data}</p></div>
+    <div class="detail-section"><label>Managerial Problem</label><p>${p.problem}</p></div>
+    <div class="detail-section"><label>Target Audience</label><p>${p.audience}</p></div>
+    <div class="detail-section"><label>Research Questions / Objectives</label><p>${p.questions}</p></div>
+    <div class="detail-section"><label>Expected Business Impact</label><p>${p.impact}</p></div>
+    <div class="detail-section"><label>Methods</label><p>${p.methods}</p></div>
+  `;
+  document.getElementById('projectDetail').classList.add('open');
+}
+
+function closeProject() { document.getElementById('projectDetail').classList.remove('open'); }
+document.getElementById('projectDetail').addEventListener('click', function(e) {
+  if (e.target === this) closeProject();
+});
+</script>
+```
+
+```{r dashboard-plots, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+make_b64 <- function(plot_obj, w = 6, h = 3.5) {
+  tmp <- tempfile(fileext = ".png")
+  ggsave(tmp, plot = plot_obj, width = w, height = h, dpi = 120, bg = "white")
+  b64 <- base64enc::base64encode(tmp)
+  unlink(tmp)
+  paste0('<img src="data:image/png;base64,', b64,
+         '" style="width:100%;border-radius:8px;margin-bottom:1rem;" />')
+}
+
+# Chart 1 — First Touch vs Last Touch
+comparison_df <- data.frame(
+  method  = rep(c("First Touch","Last Touch","Markov Chain"), each=4),
+  channel = rep(channels, times=3),
+  value   = c(0.254,0.418,0.209,0.119, 0.388,0.224,0.269,0.119, 0.260,0.245,0.238,0.257)
+)
+p1 <- ggplot(comparison_df, aes(x=method, y=value, fill=channel)) +
+  geom_col(position="fill", width=0.65) +
+  scale_y_continuous(labels=percent_format(accuracy=1)) +
+  scale_fill_manual(values=colors4) +
+  labs(title="First Touch vs Last Touch Attribution", x=NULL, y="Share of attribution credit", fill="Channel") +
+  theme_minimal(base_size=11) +
+  theme(panel.grid.major.x=element_blank(), legend.position="bottom",
+        plot.background=element_rect(fill="white",color=NA),
+        plot.title=element_text(size=11,face="bold",color="#1C2B3A"))
+
+# Chart 2 — Removal Effect
+removal_df <- data.frame(channel=channels, drop=c(0.6483,0.6830,0.6747,0.6154))
+p2 <- ggplot(removal_df, aes(x=reorder(channel,drop), y=drop, fill=channel)) +
+  geom_col(width=0.6, show.legend=FALSE) +
+  geom_text(aes(label=percent(drop,accuracy=0.1)), hjust=-0.15, size=3.2, fontface="bold") +
+  coord_flip() +
+  scale_fill_manual(values=colors4) +
+  scale_y_continuous(labels=percent_format(), limits=c(0,0.82)) +
+  labs(title="Markov Chain: Removal Effect", x=NULL, y="Drop in conversion probability") +
+  theme_minimal(base_size=11) +
+  theme(panel.grid.major.y=element_blank(), plot.background=element_rect(fill="white",color=NA),
+        plot.title=element_text(size=11,face="bold",color="#1C2B3A"))
+
+# Chart 3 — Attribution Credits
+credits_df <- data.frame(
+  channel = rep(channels, times=4),
+  method  = rep(c("First Touch","Last Touch","Markov","Shapley"), each=4),
+  credits = c(34,21,16,12, 24,31,22,6, 21.4,21.6,20.5,19.5, 20.7,20.6,21.0,20.7)
+)
+p3 <- ggplot(credits_df, aes(x=channel, y=credits, fill=method)) +
+  geom_col(position="dodge", width=0.7) +
+  scale_fill_manual(values=c(clr_navy,clr_terra,clr_green,"#8172B3")) +
+  labs(title="Attribution Credits by Method", x=NULL, y="Conversion credits", fill="Model") +
+  theme_minimal(base_size=11) +
+  theme(panel.grid.major.x=element_blank(), legend.position="bottom",
+        plot.background=element_rect(fill="white",color=NA),
+        plot.title=element_text(size=11,face="bold",color="#1C2B3A"))
+
+# Chart 4 — Shapley Values
+shapley_df <- data.frame(channel=channels, value=c(0.2001,0.1962,0.1969,0.1973))
+p4 <- ggplot(shapley_df, aes(x=reorder(channel,value), y=value, fill=channel)) +
+  geom_col(width=0.55, show.legend=FALSE) +
+  geom_text(aes(label=round(value,4)), hjust=-0.15, size=3.2) +
+  coord_flip() +
+  scale_fill_manual(values=colors4) +
+  scale_y_continuous(limits=c(0,0.24)) +
+  labs(title="Shapley Values (Avg Marginal Contribution)", x=NULL, y="Shapley value") +
+  theme_minimal(base_size=11) +
+  theme(panel.grid.major.y=element_blank(), plot.background=element_rect(fill="white",color=NA),
+        plot.title=element_text(size=11,face="bold",color="#1C2B3A"))
+
+# Chart 5 — Path Length
+set.seed(42)
+path_df <- data.frame(
+  quartile   = rep(c("Q1 (6-9)","Q2 (10-17)","Q3 (18-31)","Q4 (32-45)"), each=26),
+  conversion = c(rbinom(26,1,0.69),rbinom(26,1,0.77),rbinom(26,1,0.84),rbinom(26,1,0.86))
+) |> group_by(quartile) |> summarise(rate=mean(conversion), .groups="drop")
+p5 <- ggplot(path_df, aes(x=quartile, y=rate, group=1)) +
+  geom_line(color=clr_terra, linewidth=1.5) +
+  geom_point(size=4, color=clr_navy) +
+  geom_text(aes(label=percent(rate,accuracy=1)), vjust=-1, size=3.2, fontface="bold", color=clr_navy) +
+  scale_y_continuous(labels=percent_format(), limits=c(0.5,1)) +
+  labs(title="Conversion Rate by Path Length Quartile", x="Path length quartile", y="Conversion rate") +
+  theme_minimal(base_size=11) +
+  theme(plot.background=element_rect(fill="white",color=NA),
+        plot.title=element_text(size=11,face="bold",color="#1C2B3A"))
+
+# Chart 6 — Touch Frequency
+freq_df <- data.frame(channel=channels, pct=c(28.5,30.1,26.4,15.0))
+p6 <- ggplot(freq_df, aes(x=reorder(channel,pct), y=pct, fill=channel)) +
+  geom_col(width=0.55, show.legend=FALSE) +
+  geom_text(aes(label=paste0(pct,"%")), hjust=-0.15, size=3.5, fontface="bold") +
+  coord_flip() +
+  scale_fill_manual(values=colors4) +
+  scale_y_continuous(limits=c(0,38)) +
+  labs(title="Channel Touch Frequency (All Users)", x=NULL, y="% of all touchpoints") +
+  theme_minimal(base_size=11) +
+  theme(panel.grid.major.y=element_blank(), plot.background=element_rect(fill="white",color=NA),
+        plot.title=element_text(size=11,face="bold",color="#1C2B3A"))
+
+cat('<script>document.getElementById("dashboard-charts").innerHTML = `')
+cat(make_b64(p1))
+cat(make_b64(p2))
+cat(make_b64(p3))
+cat(make_b64(p4))
+cat(make_b64(p5))
+cat(make_b64(p6))
+cat('`;<\/script>')
+```

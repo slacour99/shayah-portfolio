@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Shayah LaCour"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: digital-marketing.qmd
+        text: Digital Marketing
+      - href: marketing-analytics.qmd
+        text: Marketing Analytics
+      - href: resume.qmd
+        text: Résumé
+    background: "#1C2B3A"
+    foreground: "#EEF5FB"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    embed-resources: false

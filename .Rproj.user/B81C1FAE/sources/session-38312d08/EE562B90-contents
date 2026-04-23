@@ -1,0 +1,311 @@
+---
+title: "TRI Logistic Regression Codebook"
+format:
+  html:
+    toc: true
+    navbar: false
+    page-layout: full
+---
+
+# Overview
+
+This codebook documents the data preparation, descriptive summaries, visualization, and logistic regression modeling used to examine behavioral differences between users who converted and users who did not convert on the TRI website.
+
+The goal is to identify which engagement behaviors are most strongly associated with conversion.
+
+::: callout-note
+This document is designed as a transparent analytical appendix. It shows how the data were prepared, how variables were defined, and how the models were estimated.
+:::
+
+# Libraries
+
+```{r}
+library(tidyverse)
+library(tibble)
+library(knitr)
+library(kableExtra)
+library(broom)
+library(forcats)
+```
+
+# Section 1. Descriptive Comparison Table
+
+## Purpose
+
+This section creates a simple behavioral comparison between users who converted and users who did not convert.
+
+## Summary Table
+
+```{r}
+table_clean <- tibble(
+  `User Type` = c("Converted", "Not Converted"),
+  `Users` = c(32, 3639),
+  `Avg Page Views` = c(188.7, 3.0),
+  `Avg Scrolls` = c(26.3, 0.5),
+  `Avg Form Starts` = c(34.0, 0.2)
+)
+
+table_clean %>%
+  kable(
+    caption = "User Behavior: Converted vs Not Converted",
+    align = "c"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE
+  )
+```
+
+## Metric Definitions
+
+```{r}
+metric_definitions <- tibble(
+  Metric = c("Users", "Avg Page Views", "Avg Scrolls", "Avg Form Starts"),
+  Definition = c(
+    "Number of users in each group.",
+    "Average number of page views per user.",
+    "Average number of scroll events per user.",
+    "Average number of form start events per user."
+  )
+)
+
+metric_definitions %>%
+  kable(
+    caption = "Metric Definitions",
+    align = c("l", "l")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE
+  )
+```
+
+# Visualization
+
+```{r}
+df_long <- table_clean %>%
+  pivot_longer(
+    cols = -`User Type`,
+    names_to = "Metric",
+    values_to = "Value"
+  )
+
+ggplot(df_long, aes(x = Metric, y = Value, fill = `User Type`)) +
+  geom_col(position = "dodge", width = 0.7, alpha = 0.9) +
+  geom_text(
+    aes(label = round(Value, 1)),
+    position = position_dodge(width = 0.7),
+    vjust = -0.3,
+    size = 4
+  ) +
+  scale_fill_manual(values = c("Converted" = "#1f77b4", "Not Converted" = "#a6c8e0")) +
+  scale_y_log10() +
+  labs(
+    title = "User Behavior: Converted vs Not Converted",
+    subtitle = "Log scale used to account for large differences in engagement",
+    x = NULL,
+    y = "Average Value (log scale)",
+    fill = "User Type"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 18),
+    plot.subtitle = element_text(size = 13),
+    axis.text = element_text(face = "bold"),
+    axis.title = element_text(face = "bold"),
+    legend.title = element_text(face = "bold")
+  )
+```
+
+::: {.callout-important}\
+
+The log scale is used because engagement values for converters are much larger than those for non-converters. Without this adjustment, the lower values would be difficult to compare visually.\
+
+:::
+
+# Section 2. Data Source and Preparation
+
+## Data Source
+
+The dataset used in this section was exported from BigQuery and saved locally as `tri_logistic_clean.csv`.
+
+## Load Data
+
+```{r}
+data <- read_csv("tri_logistic_clean.csv", skip = 1, show_col_types = FALSE)
+```
+
+# Variable Preparation
+
+```{r}
+data <- data %>%
+  mutate(
+    conversion = as.integer(conversion),
+    device_category = as.factor(device_category),
+    medium = as.factor(medium),
+    medium = fct_explicit_na(medium, na_level = "unknown"),
+    medium = fct_lump_min(medium, min = 20),
+    engagement_level = case_when(
+      page_views > 10 ~ "High",
+      page_views > 3 ~ "Medium",
+      TRUE ~ "Low"
+    ),
+    engagement_level = factor(engagement_level, levels = c("Low", "Medium", "High")),
+    page_views_log = log1p(page_views),
+    scrolls_log = log1p(scrolls),
+    form_starts_log = log1p(form_starts)
+  )
+```
+
+# Variable Codebook
+
+```{r}
+codebook <- tibble(
+  Variable = c(
+    "conversion",
+    "device_category",
+    "medium",
+    "engagement_level",
+    "page_views_log",
+    "scrolls_log",
+    "form_starts_log"
+  ),
+  Type = c(
+    "Integer / Binary",
+    "Factor",
+    "Factor",
+    "Ordered Factor",
+    "Numeric",
+    "Numeric",
+    "Numeric"
+  ),
+  Definition = c(
+    "Outcome variable indicating whether the user converted (1) or not (0).",
+    "User device type, such as desktop or mobile.",
+    "Traffic acquisition medium, with missing values labeled as unknown and rare categories grouped together.",
+    "Engagement tier based on page views: Low, Medium, or High.",
+    "Log-transformed page views using log1p().",
+    "Log-transformed scroll events using log1p().",
+    "Log-transformed form start events using log1p()."
+  )
+)
+
+codebook %>%
+  kable(
+    caption = "Variable Codebook",
+    align = c("l", "l", "l")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE
+  )
+```
+
+# Section 3. Logistic Regression Models
+
+## Model 1: Behavioral Model
+
+This model estimates the relationship between conversion and user behavior using log-transformed engagement measures plus device and traffic source controls.
+
+```{r}
+model_improved <- glm(
+  conversion ~ page_views_log + device_category + medium,
+  data = data,
+  family = "binomial"
+)
+
+summary(model_improved)
+```
+
+## Model 2: Engagement Tier Model
+
+This simpler model groups users into business-friendly engagement levels for easier interpretation.
+
+```{r}
+library(logistf)
+
+model_engagement_firth <- logistf(
+  conversion ~ engagement_level + device_category + medium,
+  data = data
+)
+
+summary(model_engagement_firth)
+```
+
+
+# Engagement Level Summary
+
+```{r}
+engagement_summary <- data %>%
+  group_by(engagement_level) %>%
+  summarise(
+    users = n(),
+    conversion_rate = mean(conversion, na.rm = TRUE) * 100,
+    avg_page_views = mean(page_views, na.rm = TRUE),
+    avg_scrolls = mean(scrolls, na.rm = TRUE),
+    avg_form_starts = mean(form_starts, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    conversion_rate = round(conversion_rate, 2),
+    avg_page_views = round(avg_page_views, 1),
+    avg_scrolls = round(avg_scrolls, 1),
+    avg_form_starts = round(avg_form_starts, 1)
+  )
+
+engagement_summary %>%
+  kable(
+    caption = "Engagement Level Summary",
+    col.names = c(
+      "Engagement Level", "Users", "Conversion Rate (%)",
+      "Avg Page Views", "Avg Scrolls", "Avg Form Starts"
+    )
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE
+  )
+```
+
+# Section 4. Engagement Level Visualization
+
+```{r}
+engagement_plot <- engagement_summary %>%
+  ggplot(aes(x = engagement_level, y = conversion_rate, fill = engagement_level)) +
+  geom_col(width = 0.7, alpha = 0.9) +
+  geom_text(
+    aes(label = paste0(conversion_rate, "%")),
+    vjust = -0.4,
+    size = 4
+  ) +
+  labs(
+    title = "Conversion Rate by Engagement Level",
+    subtitle = "Higher engagement levels are associated with higher conversion rates",
+    x = "Engagement Level",
+    y = "Conversion Rate (%)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 18),
+    plot.subtitle = element_text(size = 13),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(face = "bold"),
+    legend.position = "none"
+  )
+
+engagement_plot
+```
+
+# Section 5. Interpretation Notes
+
+::: {.callout-tip}\
+
+Users who convert show substantially higher engagement across all tracked behaviors. The regression models help evaluate whether these patterns remain meaningful after accounting for device type and traffic medium.\
+
+:::
+
+::: {.callout-note}\
+
+Because the converted group is much smaller than the non-converted group, results should be interpreted carefully. Strong associations do not necessarily imply causation.\
+
+:::
