@@ -1,7 +1,6 @@
 project:
   type: website
   output-dir: docs
-
 website:
   title: "Shayah LaCour"
   navbar:
@@ -16,10 +15,10 @@ website:
         text: Résumé
     background: "#1C2B3A"
     foreground: "#EEF5FB"
-
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
     embed-resources: false
+    include-in-header: header.html
