@@ -174,19 +174,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- ── ANALYTICS CARDS GRID ── -->
 <div class="projects-grid">
 
-  <!-- ── CARD 1: TRI Attribution Dashboard ── -->
-  <div class="project-card" onclick="openDashboard()">
-    <div class="card-icon">📈</div>
-    <p class="card-type">Marketing Attribution</p>
-    <h3 class="anchored">TRI Attribution Dashboard</h3>
-    <p>Interactive multi-channel attribution analysis using Markov Chain, Shapley values, and path analysis to identify which channels drive TRI conversions.</p>
-    <div class="card-footer">
-      <span class="card-tag">Markov Chain</span>
-      <span class="card-arrow">→</span>
-    </div>
-  </div>
 
-  <!-- ── CARD 2: TRI Logistic Regression Codebook ── -->
+  <!-- ── CARD 1: TRI Logistic Regression Codebook ── -->
   <div class="project-card" onclick="openCodebook()">
     <div class="card-icon">📋</div>
     <p class="card-type">Logistic Regression</p>
@@ -197,69 +186,23 @@ ul.task-list li input[type="checkbox"] {
       <span class="card-arrow">→</span>
     </div>
   </div>
-
-
-<!-- ════════════════════════════════════════════
-     MODAL 1 — TRI ATTRIBUTION DASHBOARD
-════════════════════════════════════════════ -->
-<div class="project-detail" id="dashboardModal">
-  <div class="detail-panel" style="max-width:900px;width:95%;max-height:90vh;overflow-y:auto;padding:2.5rem;">
-    <button class="close-btn" onclick="closeDashboard()" style="margin-bottom:1rem;">✕</button>
-
-    <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8722A;font-weight:400;margin-bottom:0.4rem;">📈 Marketing Attribution</p>
-    <h3 style="margin-bottom:0.3rem;" class="anchored">TRI Attribution Dashboard</h3>
-    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.5rem;">
-      <span class="card-tag">GA4</span>
-      <span class="card-tag">Markov Chain</span>
-      <span class="card-tag">Shapley Values</span>
-      <span class="card-tag">Path Analysis</span>
-    </div>
-
-    <!-- VALUE BOXES -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:1.5rem;">
-      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
-        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Total Users</p>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">105</p>
-      </div>
-      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
-        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Conversions</p>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">83</p>
-      </div>
-      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
-        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Conversion Rate</p>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">79.0%</p>
-      </div>
-      <div style="background:#EEF5FB;border-radius:12px;padding:1rem;text-align:center;">
-        <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A90A4;margin-bottom:0.3rem;">Unique Channels</p>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#1C2B3A;margin:0;">4</p>
-      </div>
-    </div>
-
-    <div class="detail-section"><label>Data &amp; Source</label><p>Google Analytics 4 data from TRI website. Separating the audience between converters and non-converters using BigQuery export.</p></div>
-    <div class="detail-section"><label>Managerial Problem</label><p>Users were viewing TRI's site however there were not many who stayed to sign up for trainings or donations.</p></div>
-    <div class="detail-section"><label>Target Audience</label><p>The Trauma Resource Institute specializes with healthcare professionals, but also anyone interested in learning more about trauma and coping.</p></div>
-    <div class="detail-section"><label>Research Questions / Objectives</label><p>How can TRI platform their website to encourage more conversions? Which channels contribute most to conversion?</p></div>
-    <div class="detail-section"><label>Methods</label><p>Markov Chain attribution, Shapley value analysis, first-touch vs last-touch comparison, path length analysis using R.</p></div>
-
-    <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#E8722A;font-weight:400;margin:1.5rem 0 0.8rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(74,144,196,0.15);">Visualizations</p>
-    <div id="dashboard-charts"></div>
-
-    <div style="background:#EEF5FB;border-radius:12px;padding:1.5rem;margin-top:1.5rem;">
-      <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#E8722A;font-weight:400;margin-bottom:1rem;">Key Findings</p>
-      <ol style="color:#7A90A4;font-weight:300;font-size:0.88rem;line-height:1.8;padding-left:1.2rem;margin:0;">
-        <li><strong style="color:#1C2B3A;">All four channels matter.</strong> Markov and Shapley models show roughly equal contribution (~20–22 credits each).</li>
-        <li><strong style="color:#1C2B3A;">Mobile and Paid Search are structurally essential.</strong> Removing either causes the largest drop in conversion probability (~68%).</li>
-        <li><strong style="color:#1C2B3A;">Social Media is undervalued by heuristics.</strong> The Markov model lifts it to near-parity (19.5 credits), suggesting an important mid-funnel role.</li>
-        <li><strong style="color:#1C2B3A;">Longer journeys convert better.</strong> Users with more touchpoints have higher conversion rates.</li>
-      </ol>
-      <p style="margin-top:1rem;font-size:0.85rem;color:#7A90A4;font-weight:300;"><strong style="color:#E8722A;">Recommendation:</strong> Use the Markov model as the primary attribution framework and Shapley values as a fairness check.</p>
-    </div>
+  
+  <!-- ── CARD 2: My Website Analytics ── -->
+<div class="project-card" onclick="openWebAnalytics()">
+  <div class="card-icon">🌐</div>
+  <p class="card-type">Website Analytics</p>
+  <h3 class="anchored">My Website — Live Dashboard</h3>
+  <p>Live GA4 analytics showing pageviews, sessions, users, device breakdown, and geographic reach.</p>
+  <div class="card-footer">
+    <span class="card-tag">GA4 · Live</span>
+    <span class="card-arrow">→</span>
   </div>
 </div>
 
 
+
 <!-- ════════════════════════════════════════════
-     MODAL 2 — TRI LOGISTIC REGRESSION CODEBOOK
+     MODAL 1 — TRI LOGISTIC REGRESSION CODEBOOK
      Uses an iframe to display the rendered TRICodebook.html
 ════════════════════════════════════════════ -->
 <div class="project-detail" id="codebookModal">
@@ -270,6 +213,22 @@ ul.task-list li input[type="checkbox"] {
     </button>
 
     <iframe src="TRICodebookOfficial.html" style="width:100%; height:100%; border:none;">
+    </iframe>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     MODAL 2 — MY WEBSITE ANALYTICS (Looker Studio)
+════════════════════════════════════════════ -->
+<div class="project-detail" id="webAnalyticsModal">
+  <div class="detail-panel" style="width:100vw; height:100vh; padding:0; border-radius:0;">
+
+    <button class="close-btn" onclick="closeWebAnalytics()" style="position:absolute; top:20px; right:30px; z-index:10;">
+      ✕
+    </button>
+
+    <iframe src="https://datastudio.google.com/embed/reporting/93df26b0-c555-48b7-82b5-6641714d86a7/page/PHfxF" width="100%" height="100%" frameborder="0" style="border:0; display:block;" allowfullscreen="" sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
     </iframe>
 
   </div>
@@ -290,6 +249,12 @@ function openDashboard() { document.getElementById('dashboardModal').classList.a
 function closeDashboard() { document.getElementById('dashboardModal').classList.remove('open'); }
 document.getElementById('dashboardModal').addEventListener('click', function(e) {
   if (e.target === this) closeDashboard();
+});
+
+function openWebAnalytics() { document.getElementById('webAnalyticsModal').classList.add('open'); }
+function closeWebAnalytics() { document.getElementById('webAnalyticsModal').classList.remove('open'); }
+document.getElementById('webAnalyticsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeWebAnalytics();
 });
 
 // ── Codebook modal ──
