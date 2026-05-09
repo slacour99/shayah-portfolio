@@ -4,7 +4,49 @@
     "href": "digital-marketing.html",
     "title": "Digital Marketing",
     "section": "",
-    "text": "Projects\n  Digital Marketing Projects\n  A collection of my work done at Cal Poly Pomona during my time as a graduate student in the Digital Marketing program.\n\n\n\n\n  \n  \n    📓\n    Trauma Resource Institute Internship\n    Off-Page SEO\n    Over the internship period I conducted an audit for TRI's site to help see how we could strengthen TRI's visibility with high-impact external channels and strategic keyword usage.\n    \n      Audit\n      →\n    \n  \n\n  \n  \n    📱\n    LA Fitness Mock Partnership\n    A Holiday Membership Campaign\n    Conducted a campaign focused on buddy passes becoming members for LA Fitness during their peak sign-up season around the New Year.\n    \n      Social Media\n      →\n    \n  \n\n  \n  \n    📝\n    Make-up Survey\n    Hidden Label Survey\n    A Qualtrics survey was used to assess the way in which attributes (color, material, shape) of various priced skin tints matter most to the consumer, and whether packaging preferences differ between luxury vs. non-luxury brands.\n    \n      Qualtrics\n      →\n    \n  \n\n  \n\n\n\n\n\n  \n    ✕"
+    "text": "Projects\n  Digital Marketing Projects\n  A collection of my work done at Cal Poly Pomona during my time as a graduate student in the Digital Marketing program.\n\n\n\n\n  \n  \n    💻\n    Trauma Resource Institute Internship\n    Off-Page SEO\n    Over the internship period I conducted an audit for TRI's site to help see how we could strengthen TRI's visibility with high-impact external channels and strategic keyword usage.\n    \n      Audit\n      →\n    \n  \n\n  \n  \n    📱\n    LA Fitness Mock Partnership\n    A Holiday Membership Campaign\n    Conducted a campaign focused on buddy passes becoming members for LA Fitness during their peak sign-up season around the New Year.\n    \n      Social Media\n      →\n    \n  \n\n  \n  \n    📝\n    Qualtrics Survey\n    Hidden Label Survey\n    A Qualtrics survey was used to assess the way in which attributes (color, material, shape) of various priced skin tints matter most to the consumer, and whether packaging preferences differ between luxury vs. non-luxury brands.\n    \n      Qualtrics\n      →\n    \n  \n\n\n\n  📽️\n  Portfolio Overview\n  Portfolio Presentation\n  A slide deck overview of all five digital marketing projects from my CPP MSDM program.\n  \n    RevealJS\n    →\n  \n\n\n\n\n\n\n  \n    ✕\n    \n  \n\n\n\n  \n    ✕"
+  },
+  {
+    "objectID": "portfolio-presentation.html#section",
+    "href": "portfolio-presentation.html#section",
+    "title": "Portfolio Projects Overview",
+    "section": "",
+    "text": "At a Glance\n  Cal Poly Pomona Project Highlights.\n  \n    \n      1\n      AI Research\n      ChatGPT persona development for Rare Beauty\n    \n    \n      2\n      Qualtrics Survey\n      How packaging shapes purchasing decisions\n    \n    \n      3\n      Capstone Project\n      Google Analytics and Big Query research for the Trauma Resource Institute\n    \n    \n      4\n      Mock Campaign\n      LA Fitness holiday buddy pass campaign\n    \n    \n      5\n      Social Strategy\n      Brand humor vs. crisis communication"
+  },
+  {
+    "objectID": "portfolio-presentation.html#section-1",
+    "href": "portfolio-presentation.html#section-1",
+    "title": "Portfolio Projects Overview",
+    "section": "",
+    "text": "Project 1 · AI Research\n    ChatGPT Persona Development for Rare Beauty\n    Used ChatGPT to build a detailed customer persona for Rare Beauty, exploring how generative AI can accelerate consumer insight work in brand strategy.\n    \n      ChatGPT\n      Persona Development\n      Brand Strategy\n    \n    \n      ObjectiveDevelop a research-backed customer persona using AI for the brand of my choosing, which ended up being Rare Beauty.\n      MethodIterative ChatGPT prompting, persona framework design, research on Rare Beauty's current target audience\n      Key TakeawayAI tools can meaningfully accelerate persona research when paired with strategic prompting and research"
+  },
+  {
+    "objectID": "portfolio-presentation.html#section-2",
+    "href": "portfolio-presentation.html#section-2",
+    "title": "Portfolio Projects Overview",
+    "section": "",
+    "text": "Project 2 · Qualtrics Survey\n    Packaging & Purchase Decision Survey\n    Collaborated with a team to design and field a survey examining how product packaging influences consumer buying behavior — from first impression to final purchase.\n    \n      Survey Design\n      Consumer Behavior\n      Team Research\n    \n    \n      MethodTeam-designed survey in Qualtrics, quantitative response analysis\n      Skills AppliedSurvey methodology, question design, collaborative research, data interpretation\n      Key TakeawayThere were some surprises with the surveyors believing high end was the drug store brand."
+  },
+  {
+    "objectID": "portfolio-presentation.html#section-3",
+    "href": "portfolio-presentation.html#section-3",
+    "title": "Portfolio Projects Overview",
+    "section": "",
+    "text": "Project 3 · Capstone\n    TRI Multi-Channel Attribution Analysis\n    Year-long capstone with the Trauma Resource Institute — using GA4, BigQuery, and Markov Chain models to understand behavioral differences between converters and non-converters.\n    \n      GA4\n      BigQuery\n      Markov Chain\n      Shapley Values\n      R\n    \n    \n      ProblemUsers visited TRI's site but rarely converted to sign-ups or donations\n      Finding Converters are more likely to have a longer journey and non-converters are not staying or exploring the pages for long.\n      RecommendationWork on making the user journey simpler, many of TRI's pages had information deep within the page."
+  },
+  {
+    "objectID": "portfolio-presentation.html#section-4",
+    "href": "portfolio-presentation.html#section-4",
+    "title": "Portfolio Projects Overview",
+    "section": "",
+    "text": "Project 4 · Mock Campaign\n    LA Fitness Holiday Buddy Pass Campaign\n    In class, my team was given a prompt of a mock holiday campaign for LA Fitness and incorporating their buddy passes. The target audience was the buddy and to encourage them to sign up for a membership.\n    \n      Campaign Design\n      Retention Marketing\n      Referral Strategy\n    \n    \n      StrategyHoliday urgency + social proof + dual incentive (member reward + friend access)\n      ChannelsInstagram, TikTok  · #LAFitHolidayLift\n      Key TakeawayUnderstanding the necessity for ongoing optimization and social media presence."
+  },
+  {
+    "objectID": "portfolio-presentation.html#section-5",
+    "href": "portfolio-presentation.html#section-5",
+    "title": "Portfolio Projects Overview",
+    "section": "",
+    "text": "Project 5 · Social Media Strategy\n    Brand Humor in Crisis — Where's the Line?\n    From an article, \"Bunch of jerks: How brands can benefit by reappropriating insults\" by Katherine M. Du, Keisha M. Cutright and Lingrui Zhou, my group assessed where it was appropriate to use humor in brand awareness. \n    \n      Social Media Strategy\n      Brand Voice\n      Crisis Comms\n    \n    \n      FrameworkIncluded real promotions, such as e.l.f beauty and the NFL, in order to include real life scenarios \n      Skills AppliedSocial strategy, brand tone analysis, crisis communication frameworks\n      Key TakeawayHumor builds brand equity, but context, timing, and audience trust determine when it's a risk\n    \n  \n  \n    \n      When humor works\n      Brand not directly at fault · Audience has positive sentiment · Issue is lighthearted in nature\n    \n    \n      When to stay serious\n      Direct harm or controversy · Public trust is at stake · Audience is emotionally invested\n    \n    \n      The takeaway\n      Be cautious, understand where the line is before making a joke."
   },
   {
     "objectID": "index.html",
@@ -96,6 +138,62 @@
     "title": "TRI Logistic Regression Codebook",
     "section": "Model 2: Engagement Tier Model",
     "text": "Model 2: Engagement Tier Model\nThis simpler model groups users into business-friendly engagement levels for easier interpretation.\n\nlibrary(logistf)\n\nmodel_engagement_firth &lt;- logistf(\n  conversion ~ engagement_level + device_category + medium,\n  data = data\n)\n\nsummary(model_engagement_firth)\n\nlogistf(formula = conversion ~ engagement_level + device_category + \n    medium, data = data)\n\nModel fitted by Penalized ML\nCoefficients:\n                             coef  se(coef)  lower 0.95 upper 0.95      Chisq\n(Intercept)            -7.6557421 0.8004418 -9.84934630  -6.293988        Inf\nengagement_levelMedium  4.3602770 0.7932035  2.98120888   6.550007 66.0300991\nengagement_levelHigh    4.6806517 0.8276420  3.19633130   6.900164 45.4390973\ndevice_categorymobile  -3.4865901 1.3488588 -8.54150295  -1.350621 17.3956651\ndevice_categorytablet   0.6481579 1.4749519 -4.25425864   2.936327  0.1562779\nmediumcpc               0.3937119 0.8903179 -1.86755329   1.926028  0.1741717\nmediumorganic           0.7156117 0.4070772 -0.08341892   1.577559  3.0691741\nmediumreferral          0.9525230 0.6381230 -0.47801195   2.165900  1.8431408\nmediumOther             4.1576968 1.5048416 -0.92188235   7.255223  2.9349671\n                                  p method\n(Intercept)            0.000000e+00      2\nengagement_levelMedium 4.440892e-16      2\nengagement_levelHigh   1.574596e-11      2\ndevice_categorymobile  3.035174e-05      2\ndevice_categorytablet  6.926067e-01      2\nmediumcpc              6.764306e-01      2\nmediumorganic          7.979000e-02      2\nmediumreferral         1.745833e-01      2\nmediumOther            8.668043e-02      2\n\nMethod: 1-Wald, 2-Profile penalized log-likelihood, 3-None\n\nLikelihood ratio test=110.3154 on 8 df, p=0, n=3670\nWald test = 328.682 on 8 df, p = 0"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section",
+    "href": "PortfolioPresentation.html#section",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Digital Marketing Portfolio\n  Shayah Lacour\n  Portfolio Presentation\n  \n  MS Digital Marketing · Cal Poly Pomona\n  \n    GA4 Analytics\n    Consumer Research\n    Campaign Strategy\n    Social Media"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-1",
+    "href": "PortfolioPresentation.html#section-1",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "At a Glance\nHighlighted Projects.\n\n\n  \n    01\n    AI Research\n    ChatGPT persona development for Rare Beauty\n  \n  \n    02\n    Consumer Survey\n    How packaging shapes purchasing decisions\n  \n  \n    03\n    Capstone\n    GA4 attribution analysis for TRI\n  \n  \n    04\n    Mock Campaign\n    LA Fitness holiday buddy pass campaign\n  \n  \n    05\n    Social Strategy\n    Brand humor vs. crisis communication"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-2",
+    "href": "PortfolioPresentation.html#section-2",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Project 01 · AI Research\n    ChatGPT Persona Development for Rare Beauty\n    Used ChatGPT to build a detailed customer persona for Rare Beauty, exploring how generative AI can accelerate consumer insight work in brand strategy.\n    \n      ChatGPT\n      Persona Development\n      Brand Strategy\n    \n  \n  \n  \n  \n\n    \n    \n      Objective\n      Develop a research-backed customer persona using AI to understand the core Rare Beauty buyer\n    \n    \n      Method\n      Iterative ChatGPT prompting, persona framework design, insight synthesis\n    \n    \n      Key Takeaway\n      AI tools can meaningfully accelerate persona research when paired with strategic prompting"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-3",
+    "href": "PortfolioPresentation.html#section-3",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Project 02 · Consumer Research\n    Packaging & Purchase Decision Survey\n    Collaborated with a team to design and field a survey examining how product packaging influences consumer buying behavior — from first impression to final purchase.\n    \n      Survey Design\n      Consumer Behavior\n      Team Research\n    \n  \n  \n   \n  \n\n    \n    \n      Method\n      Team-designed survey instrument, quantitative response analysis\n    \n    \n      Skills Applied\n      Survey methodology, question design, collaborative research, data interpretation\n    \n    \n      Key Takeaway\n      Packaging is a silent salesperson — visual cues significantly affect purchase intent"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-4",
+    "href": "PortfolioPresentation.html#section-4",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Project 03 · Capstone\n    TRI Multi-Channel Attribution Analysis\n    Year-long capstone project with the Trauma Resource Institute — using GA4, BigQuery, and Markov Chain models to identify which digital channels drive conversions.\n    \n      GA4\n      BigQuery\n      Markov Chain\n      Shapley Values\n      R\n    \n  \n  \n    \n  \n\n    \n      Approach\n      Markov Chain attribution, Shapley value fairness checks, path length analysis\n    \n    \n      Finding\n      All 4 channels contribute equally (~20–22 credits each); longer journeys convert better\n    \n    \n      Recommendation\n      Use Markov as primary attribution model; invest across all channels, not just last-touch"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-5",
+    "href": "PortfolioPresentation.html#section-5",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Project 04 · Campaign Strategy\n    LA Fitness Holiday Buddy Pass Campaign\n    Developed a mock holiday campaign for LA Fitness targeting existing members with a seasonal deal centered around a buddy pass — blending retention and referral strategy.\n    \n      Campaign Design\n      Retention Marketing\n      Referral Strategy\n    \n  \n  \n    \n     \n  \n\n    \n      Objective\n      Re-engage existing members during the holiday season and drive referrals through a buddy pass promotion\n    \n    \n      Strategy\n      Holiday urgency + social proof + dual incentive (member reward + friend access)\n    \n    \n      Key Takeaway\n      Retention campaigns with referral hooks outperform pure acquisition messaging"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-6",
+    "href": "PortfolioPresentation.html#section-6",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Project 05 · Social Media Strategy\n    Brand Humor in Crisis — Where's the Line?\n    Strategic analysis inspired by a real article exploring when brands can use humor publicly and when a crisis demands a more measured, serious response.\n    \n      Social Media Strategy\n      Brand Voice\n      Crisis Comms\n    \n  \n  \n    \n      Trigger\n      Article examining the appropriateness of humor when a brand faces public criticism\n    \n    \n      Framework\n      Mapped brand scenarios across a humor-appropriateness spectrum with decision criteria\n    \n    \n      Skills Applied\n      Social strategy, brand tone analysis, crisis communication frameworks\n    \n    \n      Key Takeaway\n      Humor builds brand equity — but context, timing, and audience trust determine when it's a risk"
+  },
+  {
+    "objectID": "PortfolioPresentation.html#section-7",
+    "href": "PortfolioPresentation.html#section-7",
+    "title": "Shayah LaCour",
+    "section": "",
+    "text": "Thank You\n  \"Data tells you what happened. Strategy decides what to do next.\"\n  \n  Shayah Lacour · MS Digital Marketing · Cal Poly Pomona\n  \n    GA4 Analytics\n    Consumer Research\n    Campaign Strategy\n    Social Media"
   },
   {
     "objectID": "marketing-analytics.html",

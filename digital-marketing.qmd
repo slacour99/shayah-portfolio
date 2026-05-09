@@ -14,9 +14,9 @@ format:
 
 <div class="projects-grid">
 
-  <!-- ── DIGITAL PROJECT 1 ── -->
+  <!-- ── CARD 1: Off-Page SEO ── -->
   <div class="project-card" onclick="openProject('dm1')">
-    <div class="card-icon">📓</div>
+    <div class="card-icon">💻</div>
     <p class="card-type">Trauma Resource Institute Internship</p>
     <h3>Off-Page SEO</h3>
     <p>Over the internship period I conducted an audit for TRI's site to help see how we could strengthen TRI's visibility with high-impact external channels and strategic keyword usage.</p>
@@ -26,7 +26,7 @@ format:
     </div>
   </div>
 
-  <!-- ── DIGITAL PROJECT 2 ── -->
+  <!-- ── CARD 2: Mock Campaign; LA Fitness ── -->
   <div class="project-card" onclick="openProject('dm2')">
     <div class="card-icon">📱</div>
     <p class="card-type">LA Fitness Mock Partnership</p>
@@ -38,10 +38,10 @@ format:
     </div>
   </div>
 
-  <!-- ── DIGITAL PROJECT 3 ── -->
+  <!-- ── CARD 3: Qulatrics Survey ── -->
   <div class="project-card" onclick="openProject('dm3')">
     <div class="card-icon">📝</div>
-    <p class="card-type">Make-up Survey</p>
+    <p class="card-type">Qualtrics Survey</p>
     <h3>Hidden Label Survey</h3>
     <p>A Qualtrics survey was used to assess the way in which attributes (color, material, shape) of various priced skin tints matter most to the consumer, and whether packaging preferences differ between luxury vs. non-luxury brands.</p>
     <div class="card-footer">
@@ -50,20 +50,17 @@ format:
     </div>
   </div>
 
-  <!-- ── ADD MORE DIGITAL PROJECTS HERE ──
-  Copy this block for each new project and add a matching entry in the <script> below.
-
-  <div class="project-card" onclick="openProject('dm5')">
-    <div class="card-icon">🌟</div>
-    <p class="card-type">Your Category</p>
-    <h3>Your Project Title</h3>
-    <p>Short project description.</p>
-    <div class="card-footer">
-      <span class="card-tag">Tag</span>
-      <span class="card-arrow">→</span>
-    </div>
+<!-- ── CARD 4: Portfolio Presentation ── -->
+<div class="project-card" onclick="openPresentation()">
+  <div class="card-icon">📽️</div>
+  <p class="card-type">Portfolio Overview</p>
+  <h3>Portfolio Presentation</h3>
+  <p>A slide deck overview of all five digital marketing projects from my CPP MSDM program.</p>
+  <div class="card-footer">
+    <span class="card-tag">RevealJS</span>
+    <span class="card-arrow">→</span>
   </div>
-  ── END TEMPLATE ── -->
+</div>
 
 </div>
 
@@ -75,11 +72,18 @@ format:
   </div>
 </div>
 
+<div class="project-detail" id="presentationModal">
+  <div class="detail-panel" style="width:100vw;height:100vh;max-width:100vw;max-height:100vh;padding:0;border-radius:0;position:relative;">
+    <button class="close-btn" onclick="closePresentation()" style="position:fixed;top:20px;right:30px;z-index:9999;">✕</button>
+    <iframe src="portfolio-presentation.html" style="width:100%;height:100%;border:none;display:block;" allowfullscreen></iframe>
+  </div>
+</div>
+
 <script>
 const projects = {
 
   dm1: {
-    icon: '📓', type: 'Off-Page SEO', title: 'Trauma Resource Institute',
+    icon: '💻', type: 'Off-Page SEO', title: 'Trauma Resource Institute',
     tags: ['Audit', 'Analysis', 'SEO'],
     data:      'Brand website was the platform investigated in the audit, using Squarespace and SEMRush analytics.',
     problem:   'How can we strengthen TRI authority and visibility by aligning trauma-related content with high-impact external channels and strategic keyword usage?',
@@ -92,7 +96,7 @@ const projects = {
   dm2: {
     icon: '📱', type: 'Mock Partnership', title: 'A Holiday Membership Campaign',
     tags: ['KPIs', 'Call to Action', 'Ongoing Optimization'],
-    data:      'Open Rate, Click-Through Rate, Click-to-Open Rate and Conversion Rate',
+    data:      'No real data used, a mock process',
     problem:   'LA Fitness wanted the group to come up with ideas for a mock membership campaign, specifically for their social media and website.',
     audience:  'Existing members and the buddies they bring with them, especially the buddies signing up for a membership.',
     questions: 'How can LA Fitness convert buddy pass users into paying members during the New Year peak sign-up season?',
@@ -124,6 +128,7 @@ const projects = {
 
 };
 
+
 function openProject(id) {
   const p = projects[id];
   if (!p) return;
@@ -143,5 +148,12 @@ function openProject(id) {
 
 function closeProject() { document.getElementById('projectDetail').classList.remove('open'); }
 document.getElementById('projectDetail').addEventListener('click', function(e) { if (e.target === this) closeProject(); });
+
+function openPresentation() { document.getElementById('presentationModal').classList.add('open'); }
+function closePresentation() { document.getElementById('presentationModal').classList.remove('open'); }
+document.getElementById('presentationModal').addEventListener('click', function(e) {
+  if (e.target === this) closePresentation();
+});
+
 </script>
 ```
